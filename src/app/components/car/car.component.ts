@@ -13,7 +13,7 @@ export class CarComponent implements OnInit {
 
   
   cars:Car[] = [];
- 
+  dataLoaded = false; 
 
   constructor(private carService:CarService) { }
 
@@ -24,6 +24,7 @@ export class CarComponent implements OnInit {
   getCars(){
     this.carService.getCars().subscribe(response=>{
       this.cars = response.data
+      this.dataLoaded = true;
     })
   }
 
